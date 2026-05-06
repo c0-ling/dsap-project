@@ -74,23 +74,25 @@
    - 使用者可以查看 deadline 格式、優先級輸入方式與範例任務。
 
 8. **效能比較**
-   - 比較 Red-Black Tree、普通陣列與排序陣列在 deadline 管理上的效率。
-   - 預計比較新增任務、查詢最近 deadline 等操作。
+   - 比較普通陣列、排序陣列、AVL Tree、Splay Tree 與 Red-Black Tree 在 deadline 管理上的效率。
+   - 預計比較新增任務、查詢最近 deadline、刪除任務與列出所有任務等操作。
    - 記錄操作時間，並整理成輸出結果。
-
 ---
 
 ### 使用技術
 
 - **程式語言：** C++
-- **開發工具：** Visual Studio Code、g++
-- **版本控制：** Git、GitHub
+- **開發工具：** Visual Studio Code
+- **版本控制：** GitHub
 - **核心資料結構：** Red-Black Tree
 - **比較用資料結構：**
   - 普通陣列
   - 排序陣列
+  - AVL Tree
+  - Splay Tree
   - Red-Black Tree
-
+其中 Red-Black Tree 會作為本專題的主要資料結構，AVL Tree 與 Splay Tree 則作為效能比較對象。透過比較不同資料結構在新增任務、查詢最近 deadline、刪除任務與列出所有任務上的表現，可以觀察不同 self-balancing binary search tree 在實際應用情境中的差異。
+  
 其他使用到的技術與觀念包含：
 
 - class 與物件導向設計
@@ -142,7 +144,7 @@ Prototype 階段預計完成一個可以在終端機操作的基本版本，重�
    - 標記任務完成。
 
 5. **初步效能比較是否可執行**
-   - 使用相同任務資料，比較普通陣列、排序陣列與 Red-Black Tree。
+   - 使用相同任務資料，比較普通陣列、排序陣列、AVL Tree、Splay Tree 與 Red-Black Tree。
    - 測試新增任務所需時間。
    - 測試查詢最近 deadline 所需時間。
    - 初步觀察不同資料結構在 deadline 管理情境下的差異。
@@ -187,8 +189,8 @@ Prototype 階段不一定完成完整 UI，但會先完成核心功能，也就�
 5. **初步效能比較**
    - 已加入簡單 benchmark 功能。
    - 目前會產生大量測試任務資料。
-   - 比較普通陣列、排序陣列與 Red-Black Tree 的新增時間。
-   - 比較普通陣列、排序陣列與 Red-Black Tree 查詢最近 deadline 的時間。
+   - 目前已完成普通陣列、排序陣列與 Red-Black Tree 的初步效能比較。
+   - 後續預計加入 AVL Tree 與 Splay Tree，進一步比較不同 self-balancing binary search tree 在 deadline 管理上的差異。
 
 目前 Prototype 已經可以展示本專題的主要流程：新增任務後，系統會依照 deadline 維持排序，並且可以查詢最近到期的任務。
 
@@ -231,7 +233,7 @@ Prototype 階段不一定完成完整 UI，但會先完成核心功能，也就�
 
    在 Windows PowerShell 或 VS Code Terminal 中，中文有時候會變成亂碼。這主要是終端機編碼不是 UTF-8 的問題。
 
-   目前可以透過設定終端機為 UTF-8，或在程式中加入 Windows console 的 UTF-8 設定來改善。
+   目前透過在程式中加入 Windows console 的 UTF-8 設定來改善。
 
 ---
 
@@ -268,6 +270,11 @@ Prototype 階段不一定完成完整 UI，但會先完成核心功能，也就�
    - 目前是基本 CLI 選單。
    - 後續可以讓輸出格式更清楚。
    - 若時間允許，可以嘗試加入簡單 UI。
+
+7. **加入 AVL Tree 與 Splay Tree 作為比較對象**
+   - AVL Tree 會透過高度差維持更嚴格的平衡。
+   - Splay Tree 會在每次存取後將節點旋轉到根節點附近。
+   - 後續會比較 AVL Tree、Splay Tree 與 Red-Black Tree 在新增、查詢最近 deadline、刪除與列出所有任務時的效能差異。
 
 ---
 
